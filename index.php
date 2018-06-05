@@ -15,22 +15,23 @@
             if ($strworld/2 == 1) {
                 $arrayfinal[] = $animal;
                 $arraycountry[$animal] = $country;
-                $string = implode(" ", $arrayfinal);
             }
         }
     }
-    echo "<pre>";
-    print_r($arrayfinal);
-    print_r($string);
-    $newarray = explode(" ", $string);
-    print_r($newarray);
     $a=array();
     $b=array();
-    foreach ($newarray as $n => $k) {
-        if ($n % 2 == 0)
-            $b[] = $k;
-        else
-            $a[] = $k;
+    $newarray=array();
+    foreach ($arrayfinal as $p =>$q){
+        $newarray[$p] = explode(" ", $arrayfinal[$p]);
+         }
+    foreach ($newarray as $q) {
+        foreach ($q as $kk=>$qqq){
+            if($kk==0) {
+                $b[] = $qqq;
+            } else {
+                $a[] = $qqq;
+            }
+        }
     }
     shuffle($a);
     foreach($b as $key=>$val) {
